@@ -1,0 +1,25 @@
+{% extends "layouts/form_layout.html" %}
+
+{% block form_title %}Edit Department{% endblock %}
+
+{% block form_body %}
+<form method="POST">
+    <div class="mb-3">
+        <label for="department_name" class="form-label">Department Name</label>
+        <input type="text" class="form-control" id="department_name" name="department_name" value="{{ department.name }}"  autocomplete="off" required>
+    </div>
+    <div class="mb-3">
+        <label for="division_id" class="form-label">Division</label>
+        <select class="form-select" id="division_id" name="division_id" required>
+            {% for division in divisions %}
+                <option value="{{ division.id }}" {% if division.id == department.division_id %}selected{% endif %}>
+                    {{ division.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-dark w-100">Update Department</button>
+</form>
+{% endblock %}
+
+{% block item_list %}department{% endblock %}

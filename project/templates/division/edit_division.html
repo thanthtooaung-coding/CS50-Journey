@@ -1,0 +1,15 @@
+{% extends "layouts/form_layout.html" %}
+
+{% block form_title %}Edit Division{% endblock %}
+
+{% block form_body %}
+<form method="POST">
+    <div class="mb-3">
+        <label for="division_name" class="form-label">Division Name</label>
+        <input type="text" class="form-control" id="division_name" name="division_name" value="{{ division.name }}" autocomplete="off" required>
+    </div>
+    <button type="submit" class="btn btn-dark w-100">Update Division</button>
+</form>
+{% endblock %}
+
+{% block item_list %}division{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layouts/form_layout.html" %}
+
+{% block form_title %}Add New Team{% endblock %}
+
+{% block form_body %}
+<form method="POST">
+    <div class="mb-3">
+        <label for="team_name" class="form-label">Team Name</label>
+        <input type="text" class="form-control" id="team_name" name="team_name" autofocus autocomplete="off" required>
+    </div>
+    <div class="mb-3">
+        <label for="department_id" class="form-label">Department</label>
+        <select class="form-select" id="department_id" name="department_id" required>
+            <option value="" selected disabled>Select a Department</option>
+            {% for department in departments %}
+                <option value="{{ department.id }}">{{ department.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-dark w-100">Add Team</button>
+</form>
+{% endblock %}
+
+{% block item_list %}team{% endblock %}

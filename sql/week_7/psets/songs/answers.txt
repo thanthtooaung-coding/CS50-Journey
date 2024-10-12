@@ -1,0 +1,7 @@
+1. If songs.db contains the top 100 songs of one listener from 2018, to characterize their audio aura, I would calculate the average energy, valence, and danceability of all 100 songs.
+
+2. This calculation might not be very representative because mood and preference can change significantly over a year, which isn't reflected in an average.
+   Better ways of calculating this aura could include :
+   a) Weighting songs based on play count and recency.
+   b) Analyzing genre diversity and shifts over time.
+   c) Tracking changes in preferred audio features over time to capture evolving tastes.

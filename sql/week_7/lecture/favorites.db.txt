@@ -1,0 +1,13 @@
+sqlite3 favorites.db
+.mode csv
+.import favorites.csv favorites
+.quit
+
+sqlite3 favorites.db
+.schema
+SELECT * FROM favorites;
+SELECT language FROM favorites;
+SELECT * FROM favorites LIMIT 10;
+SELECT COUNT(*) FROM favorites;
+SELECT COUNT(problem) FROM favorites;
+SELECT COUNT(DISTINCT(language)) FROM favorites;

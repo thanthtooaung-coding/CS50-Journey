@@ -1,0 +1,27 @@
+10 HTML tags used:
+1. <nav>
+2. <main>
+3. <footer>
+4. <h1>
+5. <p>
+6. <ul>
+7. <li>
+8. <img>
+9. <form>
+10.<button>
+
+5 CSS properties used:
+1. font-family
+2. color
+3. margin-bottom
+4. border-radius
+5. box-shadow
+
+JavaScript usage:
+I used JavaScript to add interactivity to the website by implementing a button that changes the background color randomly when clicked, and to handle form submission on the contact page.
+
+Bootstrap usage:
+I integrated Bootstrap to create a responsive navigation bar, utilize the grid system for layout, and style buttons and forms consistently across the website.
+
+Bootstrap icon usage:
+I used Bootstrap icons to add a GitHub icon to the navigation bar, linking to my GitHub profile. This was implemented using the `<i>` tag with the appropriate Bootstrap icon classes, enhancing the website's functionality and visual appeal.

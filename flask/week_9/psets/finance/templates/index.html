@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">TOTAL</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td class="text-start">{{ stock.symbol }}</td>
+                <td class="text-end">{{ stock.shares }}</td>
+                <td class="text-end">{{ stock.price }}</td>
+                <td class="text-end">{{ stock.total }}</td>
+                <td class="text-end">
+                    <form action="/trade" method="post" class="d-inline-flex">
+                        <input type="hidden" name="symbol" value="{{ stock.symbol }}">
+                        <input type="number" name="shares" id="shares-{{ stock.symbol }}" min="1" placeholder="Shares" class="form-control me-2 form-input" required>
+
+                        <select name="action" id="action-{{ stock.symbol }}" class="form-select me-2" required onchange="adjustMax('{{ stock.symbol }}', {{ stock.shares }})">
+                            <option value="" disabled selected>Select Action</option>
+                            <option value="buy">Buy</option>
+                            <option value="sell">Sell</option>
+                        </select>
+                        <button class="btn btn-primary btn-sm" type="submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+                <td class="border-0 text-end">{{ cash }}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
+                <td class="border-0 w-bold text-end">{{ total }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        function adjustMax(symbol, maxShares) {
+            const action = document.getElementById(`action-${symbol}`).value;
+            const sharesInput = document.getElementById(`shares-${symbol}`);
+
+            if (action === "sell") {
+                sharesInput.setAttribute("max", maxShares);
+            } else {
+                sharesInput.removeAttribute("max");
+            }
+        }
+    </script>
+{% endblock %}
